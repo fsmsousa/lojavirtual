@@ -1,4 +1,6 @@
-﻿using lojavirtualFsmsousa.Models;
+﻿using AutoMapper;
+using lojavirtualFsmsousa.Models;
+using Modelo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,21 +13,15 @@ namespace lojavirtualFsmsousa.Controllers
 {
     public class ProdutoController : Controller
     {
+        
         public ActionResult Lista()
         {
-            var lista = new List<ProdutoViewModel>
-            {
-                new ProdutoViewModel
-                {
-                    Nome = "Chuteira Nike",
-                    Categoria = " Calcados"
-                },
-                new ProdutoViewModel
-                {
-                    Nome = "Camisa Adidas",
-                    Categoria = "Roupas"
-                }
-            };
+            var produtos = new Produtos();
+
+            var ListaProdutos = produtos.Lista();
+
+            var lista = Mapper.Map<IList<ProdutoViewModel>>(ListaProdutos);
+          
             return View(lista);
         }
     }
