@@ -8,8 +8,10 @@ namespace Modelo
 {
     public class Produto
     {
-        public string Nome { get; set; }
+        public virtual Guid Id { get; set; }
 
-        public Categoria Categoria { get; set; }
+        public virtual string Nome { get; set; }
+
+        public virtual Categoria Categoria { get; set; }
     }
 }
