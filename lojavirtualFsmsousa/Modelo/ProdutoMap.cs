@@ -13,6 +13,7 @@ namespace Modelo
         public ProdutoMap()
         {
             Id(x => x.Id, m => m.Generator(Generators.GuidComb));
+            Property(x => x.Nome);
         }
     }
 }
